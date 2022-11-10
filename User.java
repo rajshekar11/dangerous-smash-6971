@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +28,12 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
+	
+	@NotEmpty
+	@Size(min = 5, max = 7)
+	@Pattern(regexp = "^[A-Z][a-z]*")
 	private String UserType;
+	@Size(min = 3, max = 15)
 	private String Password;
 	
 	@OneToMany
