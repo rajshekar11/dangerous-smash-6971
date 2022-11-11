@@ -12,6 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -29,11 +30,15 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
 	
-	@NotEmpty
-	@Size(min = 5, max = 7)
-	@Pattern(regexp = "^[A-Z][a-z]*")
+	@NotNull(message = "User Type is mandatory")
+	@NotEmpty(message = "User Type is mandatory")
+	@Size(min = 5, max = 7, message = "User Type should be of 5-7 charecters")
+	@Pattern(regexp = "^[A-Z][a-z]*", message = "Only alphabets are allowed")
 	private String UserType;
-	@Size(min = 3, max = 15)
+	
+	@NotNull(message = "Password is mandatory")
+	@NotEmpty(message = "Password is mandatory")
+	@Size(min = 5, max = 15, message = "password should be of 5-15 charecters")
 	private String Password;
 	
 	@OneToMany
