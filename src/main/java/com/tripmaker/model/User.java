@@ -3,10 +3,12 @@ package com.tripmaker.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +27,9 @@ public class User {
 	private String UserType;
 	private String Password;
 	
-	@ManyToOne
-	private List<Customer> customers = new ArrayList<>();
+	@ManyToOne(cascade = CascadeType.ALL)
+	private List<Customer> customersList = new ArrayList<>();
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Travels> travelsList = new ArrayList<>();
 }
