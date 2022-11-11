@@ -5,6 +5,7 @@ import java.util.List;
 import com.tripmaker.exception.AdminException;
 import com.tripmaker.model.Admin;
 
+//Yedhu Nanthan.S
 public interface AdminServices {
 
 	public Admin addAdmin(Admin admin)throws AdminException;

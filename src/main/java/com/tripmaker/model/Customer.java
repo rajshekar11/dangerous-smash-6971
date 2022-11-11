@@ -1,5 +1,7 @@
 package com.tripmaker.model;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +18,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//Yedhu Nanthan.S
 @Entity
 @Data
 @NoArgsConstructor
@@ -48,7 +51,10 @@ public class Customer {
 	@NotNull(message = "Email is mandatory")
 	private String email;
 	
-	@OneToMany
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	private Set<FeedBack> reports = new HashSet<>();
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customersList")
 	private User user;
 
 }

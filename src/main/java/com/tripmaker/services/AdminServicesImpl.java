@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tripmaker.exception.AdminException;
 import com.tripmaker.model.Admin;
 import com.tripmaker.repository.AdminRepository;
 
+//Yedhu Nanthan.S
+@Service
 public class AdminServicesImpl implements AdminServices{
 	
 	@Autowired

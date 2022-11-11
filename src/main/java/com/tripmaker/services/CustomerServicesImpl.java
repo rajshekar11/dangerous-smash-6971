@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tripmaker.exception.CustomerException;
 import com.tripmaker.model.Customer;
 import com.tripmaker.repository.CustomerRepository;
 
-
+//Yedhu Nanthan.S
+@Service
 public class CustomerServicesImpl implements CustomerServices{
 
 	@Autowired
@@ -58,19 +60,21 @@ public class CustomerServicesImpl implements CustomerServices{
 
 	@Override
 	public List<Customer> viewAllCustomer(Integer customerId) throws CustomerException {
-		List<Customer> customersList = customerDao.findByCustomerId(customerId);
-		if(customersList.size() == 0)
-			throw new CustomerException("no customers found");
-		else
-			return customersList;
+		return null;
+//		List<Customer> customersList = customerDao.findByCustomerId(customerId);
+//		if(customersList.size() == 0)
+//			throw new CustomerException("no customers found");
+//		else
+//			return customersList;
 	}
 
 	@Override
 	public List<Customer> viewAllCustomerList(Integer customerId) throws CustomerException {
-		List<Customer> customersList = customerDao.findAll();
-		if(customersList.size() == 0)
-			throw new CustomerException("no customers found");
-		else
-			return customersList;
+		return null;
+//		List<Customer> customersList = customerDao.findAll();
+//		if(customersList.size() == 0)
+//			throw new CustomerException("no customers found");
+//		else
+//			return customersList;
 	}
 }

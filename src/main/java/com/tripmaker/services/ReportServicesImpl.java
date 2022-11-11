@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tripmaker.exception.ReportException;
 import com.tripmaker.model.Report;
 import com.tripmaker.repository.ReportRepository;
 
-
+//Yedhu Nanthan.S
+@Service
 public class ReportServicesImpl implements ReportServices{
 
 	@Autowired

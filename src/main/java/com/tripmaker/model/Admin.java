@@ -21,7 +21,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+//Yedhu Nanthan.S
 @Entity
 @Data
 @NoArgsConstructor
@@ -52,4 +52,7 @@ public class Admin {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Set<Report> reports = new HashSet<>();
+	
+	@ManyToOne(cascade =  CascadeType.ALL)
+	private Set<User> usersList = new HashSet<>();
 }
