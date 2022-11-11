@@ -1,18 +1,23 @@
 package com.tripmaker.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.GeneratorType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 //Yedhu Nanthan.S
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -21,6 +26,7 @@ public class Report {
 
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer reportId;
 	
 	@NotNull(message = "reportName is mandatory")
@@ -33,6 +39,6 @@ public class Report {
 	@NotEmpty(message = "reportType is mandatory")
 	private String reportType;
 	
-	@OneToMany
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Admin admin;
 }

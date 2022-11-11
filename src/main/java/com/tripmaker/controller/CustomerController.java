@@ -31,7 +31,7 @@ public class CustomerController {
 		return new ResponseEntity<Customer>(newCustomer,HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/Customers")
+	@PutMapping("/Customers/")
 	public ResponseEntity<Customer> updateCustomerHandler(@RequestBody Customer customer) throws CustomerException{
 		Customer updatedCustomer = customerServices.updateCustomer(customer);
 		return new ResponseEntity<Customer>(updatedCustomer,HttpStatus.OK);

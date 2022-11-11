@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -33,7 +34,6 @@ public class Customer {
 	@NotNull(message = "Name is mandatory")
 	@NotBlank(message = "Name is mandatory")
 	@Size(min = 3,message = "Size should be greater than 3")
-	@Pattern(regexp="^[A-Z][a-z]*",message = "only characters are allowed")
 	private String customerName;
 	
 	@NotNull(message = "Password is mandatory")
@@ -54,7 +54,7 @@ public class Customer {
 //	@ManyToOne(cascade = CascadeType.ALL)
 //	private Set<FeedBack> reports = new HashSet<>();
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customersList")
+	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
 
 }

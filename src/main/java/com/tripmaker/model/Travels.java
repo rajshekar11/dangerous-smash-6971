@@ -35,21 +35,18 @@ public class Travels {
 	@NotNull(message = "travelName is mandatory")
 	@NotBlank(message = "travelName is mandatory")
 	@Size(min = 3,message = "Size should be greater than 3")
-	@Pattern(regexp="^[A-Z][a-z]*",message = "only characters are allowed")
 	private String travelName;
 	
 	@NotEmpty(message = "agentName is mandatory")
 	@NotNull(message = "agentName is mandatory")
 	@NotBlank(message = "agentName is mandatory")
 	@Size(min = 3,message = "Size should be greater than 3")
-	@Pattern(regexp="^[A-Z][a-z]*",message = "only characters are allowed")	
 	private String agentName;
 	
 	@NotEmpty(message = "address is mandatory")
 	@NotNull(message = "address is mandatory")
 	@NotBlank(message = "address is mandatory")
 	@Size(min = 5,message = "Size should be greater than 5")
-	@Pattern(regexp="^[A-Z][a-z]*",message = "only characters are allowed")
 	private String address;
 	
 	@NotNull(message = "contact is mandatory")

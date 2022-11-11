@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,9 +28,12 @@ public class User {
 	private String UserType;
 	private String Password;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
 	private List<Customer> customersList = new ArrayList<>();
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Travels> travelsList = new ArrayList<>();
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+	private List<Admin> adminList = new ArrayList<>();
 }

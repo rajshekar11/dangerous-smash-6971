@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -36,7 +37,6 @@ public class Admin {
 	@NotNull(message = "Name is mandatory")
 	@NotBlank(message = "Name is mandatory")
 	@Size(min = 3,message = "Size should be greater than 3")
-	@Pattern(regexp="^[A-Z][a-z]*",message = "only characters are allowed")
 	private String adminName;
 	
 	@Email(message = "enter a valid email")
@@ -50,9 +50,9 @@ public class Admin {
 	@Size(min = 10,max = 10,message = "please enter valid 10 digit mobile number")
 	private String mobial;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Report> reports = new HashSet<>();
 	
 	@ManyToOne(cascade =  CascadeType.ALL)
-	private Set<User> usersList = new HashSet<>();
+	private User user;
 }

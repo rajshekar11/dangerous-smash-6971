@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+//@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,7 +22,7 @@ public class Package {
 	private String packageName;
 	private String packageDescription;
 	private String packageType;
-	private double packageCost;
+	private Double packageCost;
 	private Payment paymetnDetails;
 
 }

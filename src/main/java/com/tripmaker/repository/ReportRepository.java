@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.tripmaker.model.Report;
 
+//Yedhu Nanthan.S
 @Repository
 public interface ReportRepository extends JpaRepository<Report, Integer>{
 
