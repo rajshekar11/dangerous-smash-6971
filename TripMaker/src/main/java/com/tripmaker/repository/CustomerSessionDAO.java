@@ -12,6 +12,6 @@ public interface CustomerSessionDAO extends JpaRepository<CurrentCustomerSession
 
 	public Optional<CurrentCustomerSession> findByUserId(Integer userId);
 
-	public Optional<CurrentCustomerSession> findByUuid(String uuid);
+	public CurrentCustomerSession findByUuid(String uuid);
 
 }
