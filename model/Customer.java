@@ -38,7 +38,7 @@ public class Customer {
 	@NotEmpty(message = "Customer pasword is mandatory")
 	@Size(min = 5, max = 15, message = "Customer pasword should be of 5-15 charecters")
 	@Pattern(regexp = "^[A-Z][a-z]*")
-	private String customerPassword;
+	private String password;
 	
 	@NotNull(message = "Customer address is mandatory")
 	@NotEmpty(message = "Customer address is mandatory")
@@ -49,7 +49,7 @@ public class Customer {
 	@NotNull(message = "Customer mobile no. is mandatory")
 	@NotEmpty(message = "Customer mobile no. is mandatory")
 	@Column(unique = true,columnDefinition = "integer default 0")
-	private String mobileNo;
+	private String mobile;
 
 	@NotNull(message = "Customer email is mandatory")
 	@NotEmpty(message = "Customer email is mandatory")

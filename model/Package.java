@@ -56,16 +56,14 @@ public class Package {
 	@NotEmpty
 	@Size(min = 5, max = 15)
 	@Pattern(regexp = "^[A-Z][a-z]*")
+	@OneToOne(cascade = CascadeType.ALL)
 	private PaymentDetails paymetnDetails;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Booking> bookings = new ArrayList<>();
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private PaymentDetails payment; 
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	private TicketDetails ticket;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<TicketDetails> ticket = new ArrayList<>();
 	
 
 }

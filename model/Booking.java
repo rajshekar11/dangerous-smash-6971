@@ -57,7 +57,7 @@ public class Booking {
 	private LocalDate bookingDate;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	private List<User> users = new ArrayList<>();
+	private User user;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Package packages;

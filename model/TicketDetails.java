@@ -36,7 +36,7 @@ public class TicketDetails {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Booking bookings;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Package packages;
 	
 }
