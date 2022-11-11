@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tripmaker.exception.LoginException;
 import com.tripmaker.model.AdminLoginDTO;
-import com.tripmaker.model.User;
+import com.tripmaker.model.CurrentAdmin;
 import com.tripmaker.services.AdminLoginService;
 
 @RestController
@@ -22,15 +22,15 @@ public class LoginController {
 	private AdminLoginService adminLoginService;
 
 	@PostMapping("/adminLogin")
-	public ResponseEntity<User> loginCustomerr(@RequestBody AdminLoginDTO adminDTO) throws LoginException {
-		User user = adminLoginService.logIntoAccount(adminDTO);
-		return new ResponseEntity<User>(user,HttpStatus.OK);
+	public ResponseEntity<CurrentAdmin> loginCustomerr(@RequestBody AdminLoginDTO adminDTO) throws LoginException {
+		CurrentAdmin user = adminLoginService.logIntoAccount(adminDTO);
+		return new ResponseEntity<CurrentAdmin>(user,HttpStatus.OK);
 	}
 
 	@DeleteMapping("/adminLogout/{id}")
-	public ResponseEntity<User> logOutCustomerr(@PathVariable("id") Integer adminId) throws LoginException {
-		User user = adminLoginService.logOutAccount(adminId);
-		return new ResponseEntity<User>(user, HttpStatus.OK);
+	public ResponseEntity<CurrentAdmin> logOutCustomerr(@PathVariable("id") Integer adminId) throws LoginException {
+		CurrentAdmin user = adminLoginService.logOutAccount(adminId);
+		return new ResponseEntity<CurrentAdmin>(user, HttpStatus.OK);
 		
 	}
 }

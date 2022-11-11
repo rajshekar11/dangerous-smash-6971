@@ -49,15 +49,9 @@ public class CustomerController {
 		return new ResponseEntity<Customer>(Customer,HttpStatus.FOUND);
 	}
 	
-	@GetMapping("/Admin/viewAllCustomers/{id}")
-	public ResponseEntity<List<Customer>> viewAllCustomerHandler(@PathVariable("id") Integer customerId) throws CustomerException{
-		List<Customer> customerList = customerServices.viewAllCustomer(customerId);
-		return new ResponseEntity<List<Customer>>(customerList,HttpStatus.FOUND);
-	}
-	
-	@GetMapping("/Admin/viewCustomersList/{id}")
-	public ResponseEntity<List<Customer>> viewCustomerListHandler(@PathVariable("id") Integer customerId) throws CustomerException{
-		List<Customer> customerList = customerServices.viewAllCustomerList(customerId);
+	@GetMapping("/Admin/viewAllCustomers")
+	public ResponseEntity<List<Customer>> viewAllCustomerHandler() throws CustomerException{
+		List<Customer> customerList = customerServices.viewAllCustomer();
 		return new ResponseEntity<List<Customer>>(customerList,HttpStatus.FOUND);
 	}
 }

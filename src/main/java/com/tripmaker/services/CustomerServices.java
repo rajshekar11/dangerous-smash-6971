@@ -12,6 +12,5 @@ public interface CustomerServices {
 	public Customer updateCustomer(Customer customer)throws CustomerException;
 	public Customer deleteCustomer(Customer customer)throws CustomerException;
 	public Customer viewCustomer(Integer customerId)throws CustomerException;
-	public List<Customer> viewAllCustomer(Integer customerId)throws CustomerException;
-	public List<Customer> viewAllCustomerList(Integer customerId)throws CustomerException;
+	public List<Customer> viewAllCustomer()throws CustomerException;
 }

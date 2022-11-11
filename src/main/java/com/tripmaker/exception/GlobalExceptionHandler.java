@@ -90,8 +90,8 @@ public class GlobalExceptionHandler {
 		
 	}
 	
-	@ExceptionHandler(TravelException.class)
-	public ResponseEntity<MyErrorDetail> ticketExceptionHandler(TravelException tException, WebRequest req) {
+	@ExceptionHandler(TravelsException.class)
+	public ResponseEntity<MyErrorDetail> ticketExceptionHandler(TravelsException tException, WebRequest req) {
 		
 		MyErrorDetail err= new MyErrorDetail();
 		err.setTimestamp(LocalDateTime.now());

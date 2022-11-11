@@ -59,22 +59,12 @@ public class CustomerServicesImpl implements CustomerServices{
 	}
 
 	@Override
-	public List<Customer> viewAllCustomer(Integer customerId) throws CustomerException {
-		return null;
-//		List<Customer> customersList = customerDao.findByCustomerId(customerId);
-//		if(customersList.size() == 0)
-//			throw new CustomerException("no customers found");
-//		else
-//			return customersList;
+	public List<Customer> viewAllCustomer() throws CustomerException {
+		List<Customer> customersList = customerDao.findAll();
+		if(customersList.size() == 0)
+			throw new CustomerException("no customers found");
+		else
+			return customersList;
 	}
 
-	@Override
-	public List<Customer> viewAllCustomerList(Integer customerId) throws CustomerException {
-		return null;
-//		List<Customer> customersList = customerDao.findAll();
-//		if(customersList.size() == 0)
-//			throw new CustomerException("no customers found");
-//		else
-//			return customersList;
-	}
 }

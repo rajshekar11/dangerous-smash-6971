@@ -1,9 +1,9 @@
 package com.tripmaker.services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import com.tripmaker.exception.AdminException;
 import com.tripmaker.model.Admin;
 import com.tripmaker.model.AdminDTO;
+import com.tripmaker.model.User;
 import com.tripmaker.repository.AdminRepository;
+import com.tripmaker.repository.UserRepository;
 
 //Yedhu Nanthan.S
 @Service
@@ -20,11 +22,15 @@ public class AdminServicesImpl implements AdminServices{
 	@Autowired
 	private AdminRepository adminDao;
 
+	@Autowired
+	private UserRepository userRepository;
+	
 	@Override
 	public Admin addAdmin(AdminDTO admin) throws AdminException {
 		Admin newAdmin = adminDao.save(new Admin(admin.getAdminName(), admin.getEmail(), admin.getPassword(), admin.getMobial()) );
 		if(newAdmin == null)
 			throw new AdminException("cannot insert record");
+		userRepository.save(new User(newAdmin.getAdminId(), "Admin", newAdmin.getPassword(), LocalDateTime.now()));
 		return newAdmin;
 	}
 
