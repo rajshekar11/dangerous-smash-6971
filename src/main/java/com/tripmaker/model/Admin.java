@@ -32,22 +32,9 @@ public class Admin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer adminId;
-	
-	@NotEmpty(message = "Name is mandatory")
-	@NotNull(message = "Name is mandatory")
-	@NotBlank(message = "Name is mandatory")
-	@Size(min = 3,message = "Size should be greater than 3")
 	private String adminName;
-	
-	@Email(message = "enter a valid email")
-	@NotNull(message = "Email is mandatory")
 	private String email;
-	
-	@NotNull(message = "Password is mandatory")
-	@Size(min = 8,max = 10,message = "minimum 8 characters and maximum 10 characters")
 	private String password;
-	
-	@Size(min = 10,max = 10,message = "please enter valid 10 digit mobile number")
 	private String mobial;
 	
 	@OneToMany(cascade = CascadeType.ALL)
@@ -55,4 +42,16 @@ public class Admin {
 	
 	@ManyToOne(cascade =  CascadeType.ALL)
 	private User user;
+
+	public Admin(String adminName, String email, String password, String mobial) {
+		super();
+		this.adminName = adminName;
+		this.email = email;
+		this.password = password;
+		this.mobial = mobial;
+		this.reports = new HashSet<>();
+		this.user = null;
+	}
+	
+	
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tripmaker.exception.AdminException;
 import com.tripmaker.model.Admin;
+import com.tripmaker.model.AdminDTO;
 import com.tripmaker.services.AdminServices;
 
 //Yedhu Nanthan.S
@@ -25,7 +26,7 @@ public class AdminController {
 	private AdminServices adminServices;
 
 	@PostMapping("/Admins")
-	public ResponseEntity<Admin> addAdminHandler(@RequestBody Admin admin) throws AdminException{
+	public ResponseEntity<Admin> addAdminHandler(@RequestBody AdminDTO admin) throws AdminException{
 		Admin newAdmin = adminServices.addAdmin(admin);
 		return new ResponseEntity<Admin>(newAdmin,HttpStatus.CREATED);
 	}

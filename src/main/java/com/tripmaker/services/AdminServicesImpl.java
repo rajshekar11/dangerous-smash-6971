@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.tripmaker.exception.AdminException;
 import com.tripmaker.model.Admin;
+import com.tripmaker.model.AdminDTO;
 import com.tripmaker.repository.AdminRepository;
 
 //Yedhu Nanthan.S
@@ -20,8 +21,8 @@ public class AdminServicesImpl implements AdminServices{
 	private AdminRepository adminDao;
 
 	@Override
-	public Admin addAdmin(Admin admin) throws AdminException {
-		Admin newAdmin = adminDao.save(admin);
+	public Admin addAdmin(AdminDTO admin) throws AdminException {
+		Admin newAdmin = adminDao.save(new Admin(admin.getAdminName(), admin.getEmail(), admin.getPassword(), admin.getMobial()) );
 		if(newAdmin == null)
 			throw new AdminException("cannot insert record");
 		return newAdmin;
