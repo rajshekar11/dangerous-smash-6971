@@ -14,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -34,30 +33,24 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bookinId;
 	
-	@NotNull(message = "Booking Type is mandatory")
-	@NotEmpty(message = "Booking Type is mandatory")
-	@Size(min = 5, max = 15, message = "User Type should be of 5-7 charecters")
-	@Pattern(regexp = "^[A-Z][a-z]*", message = "Only alphabets are allowed")
+	@NotEmpty
+	@Size(min = 5, max = 15)
+	@Pattern(regexp = "^[A-Z][a-z]*")
 	private String bookingType;
-	
-	@NotNull(message = "Booking description is mandatory")
-	@NotEmpty(message = "Booking description is mandatory")
-	@Size(min = 5, max = 50, message = "Description should be of 5-50 charecters")
-	@Pattern(regexp = "^[A-Z][a-z]*", message = "Only alphabets are allowed")
+	@NotEmpty
+	@Size(min = 10, max = 20)
+	@Pattern(regexp = "^[A-Z][a-z]*")
 	private String description;
-	
-	
-	@NotNull(message = "Booking title is mandatory")
-	@NotEmpty(message = "Booking title is mandatory")
-	@Size(min = 5, max = 15, message = "Description should be of 5-15 charecters")
-	@Pattern(regexp = "^[A-Z][a-z]*", message = "Only alphabets are allowed")
+	@NotEmpty
+	@Size(min = 5, max = 7)
+	@Pattern(regexp = "^[A-Z][a-z]*")
 	private String bookingTitle;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
 	private LocalDate bookingDate;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	private User user;
+	private List<User> users = new ArrayList<>();
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Package packages;
