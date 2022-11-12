@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -28,31 +27,22 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerId;
 	
-	@NotNull(message = "Customer name is mandatory")
-	@NotEmpty(message = "Customer name is mandatory")
-	@Size(min = 5, max = 15, message = "User Type should be of 5-7 charecters")
-	@Pattern(regexp = "^[A-Z][a-z]*", message = "Only alphabets are allowed")
-	private String customerName;
-	
-	@NotNull(message = "Customer pasword is mandatory")
-	@NotEmpty(message = "Customer pasword is mandatory")
-	@Size(min = 5, max = 15, message = "Customer pasword should be of 5-15 charecters")
+	@NotEmpty
+	@Size(min = 5, max = 7)
 	@Pattern(regexp = "^[A-Z][a-z]*")
-	private String password;
-	
-	@NotNull(message = "Customer address is mandatory")
-	@NotEmpty(message = "Customer address is mandatory")
-	@Size(min = 4, max = 15, message = "Customer address should be of 5-15 charecters")
-	@Pattern(regexp = "^[A-Z][a-z]*", message = "Only alphabets are allowed")
+	private String customerName;
+	@NotEmpty
+	@Size(min = 5, max = 15)
+	@Pattern(regexp = "^[A-Z][a-z]*")
+	private String customerPassword;
+	@NotEmpty
+	@Size(min = 4, max = 15)
+	@Pattern(regexp = "^[A-Z][a-z]*")
 	private String address;
 	
-	@NotNull(message = "Customer mobile no. is mandatory")
-	@NotEmpty(message = "Customer mobile no. is mandatory")
 	@Column(unique = true,columnDefinition = "integer default 0")
-	private String mobile;
-
-	@NotNull(message = "Customer email is mandatory")
-	@NotEmpty(message = "Customer email is mandatory")
+	private String mobileNo;
+	
 	@Email(message = "Please Enter Correct Email Id.")
 	private String email;
 
