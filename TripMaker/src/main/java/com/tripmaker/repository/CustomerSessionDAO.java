@@ -7,11 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.tripmaker.model.CurrentCustomerSession;
 
+
 @Service
 public interface CustomerSessionDAO extends JpaRepository<CurrentCustomerSession, Integer> {
 
 	public Optional<CurrentCustomerSession> findByUserId(Integer userId);
 
-	public CurrentCustomerSession findByUuid(String uuid);
+	public Optional<CurrentCustomerSession> findByUuid(String uuid);
 
 }

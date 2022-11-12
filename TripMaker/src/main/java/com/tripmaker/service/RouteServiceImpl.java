@@ -6,15 +6,26 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tripmaker.exception.BusException;
 import com.tripmaker.exception.RouteException;
+import com.tripmaker.model.Bus;
 import com.tripmaker.model.Route;
+import com.tripmaker.model.TicketDetails;
+import com.tripmaker.repository.BusDao;
 import com.tripmaker.repository.RouteDao;
+import com.tripmaker.repository.TicketDetailsDao;
 
 @Service
 public class RouteServiceImpl implements RouteService {
 
 	@Autowired
 	RouteDao routeDao;
+	
+	@Autowired 
+	BusDao busDao;
+	
+	@Autowired 
+	TicketDetailsDao ticketDetailsDao;
 
 	@Override
 	public Route addRoute(Route route) {
@@ -23,9 +34,24 @@ public class RouteServiceImpl implements RouteService {
 	}
 
 	@Override
-	public Route updateRoute(Integer routeId, Integer busId) throws RouteException {
-		// TODO Auto-generated method stub
-		return null;
+	public Route updateRoute(Integer routeId, Integer busId) throws RouteException, BusException {
+		Optional<Route> opt = routeDao.findById(routeId);
+		Optional<Bus> opt2 = busDao.findById(busId);
+		if(opt.isPresent()) {
+			if(opt2.isPresent()) {
+				Route route = opt.get();
+				Bus bus = opt2.get();
+				route.setBus(bus);
+				
+				TicketDetails ticketDetails = new TicketDetails();
+				ticketDetails.setRoute(route);
+				ticketDetails.setStatus("not booked");
+				ticketDetailsDao.save(ticketDetails);
+				return routeDao.save(route);
+			}
+			else throw new BusException("Bus not found");
+		}
+		else throw new RouteException("route not found with route id : " + routeId);
 	}
 
 	@Override

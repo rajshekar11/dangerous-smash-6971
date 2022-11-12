@@ -22,14 +22,15 @@ public class CurrentCustomerSession {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-
-	@Column(unique = true)
+	
+	@Column(unique =true)
 	private Integer userId;
-
+	
 	private String uuid;
-
+	
 	private LocalDateTime localDateTime;
 
+	
 	public CurrentCustomerSession(Integer userId, String uuid, LocalDateTime localDateTime) {
 		super();
 		this.userId = userId;

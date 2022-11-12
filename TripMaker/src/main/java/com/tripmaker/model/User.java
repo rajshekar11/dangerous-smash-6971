@@ -12,23 +12,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Customer{
+public class User{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer customerId;
-	private String customerName;
-	private String email;
-	private String address;
-	private String mobile;
-	private String password;;
+	private Integer userId;
+	private String userEmail;
+	private String userMobile;
+	private String userPassword;;
 	private String userType;
-	
-	
-//	@OneToMany(cascade = CascadeType.ALL)
-//	private List<Feedback> feedbacks = new ArrayList<>();
-//	
-//	@OneToMany(cascade = CascadeType.ALL)
-//	private List<Booking> bookings = new  ArrayList<>();	
 	
 }

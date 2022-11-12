@@ -18,40 +18,36 @@ public class CustomerLoginServiceImpl implements CustomerLoginService {
 
 	@Autowired
 	private CustomerDao CustomerDao;
-
 	@Autowired
 	private CustomerSessionDAO CustomerSessionDAO;
 
 	@Override
 	public String logIntoAccount(CustomerDTO customerDTO) {
-		Customer existingCustomer = CustomerDao.findByMobile(customerDTO.getMobile());
+		Optional<Customer> opt = CustomerDao.findByMobile(customerDTO.getMobile());
 
-		if (existingCustomer == null) {
-
-			throw new LoginException("Please Enter a valid mobile number");
-
+		if (!opt.isPresent()) {
+			return "Please enter valid Mobile number!";
 		}
 
-		Optional<CurrentCustomerSession> validCustomerSessionOpt = CustomerSessionDAO.findById(existingCustomer.getCustomerId());
+		Customer customer1 = opt.get();
+		Integer userId = customer1.getCustomerId();
+		Optional<CurrentCustomerSession> currUseropt1 = CustomerSessionDAO.findByUserId(userId);
 
-		if (validCustomerSessionOpt.isPresent()) {
-
-			throw new LoginException("User already Logged In with this number");
-
+		if (currUseropt1.isPresent()) {
+			return "User already logged in with this number.";
 		}
 
-		if (existingCustomer.getPassword().equals(dto.getPassword())) {
+		if (customer1.getPassword().equals(customerDTO.getPassword())) {
 
-			String key = RandomString.make(6);
-
-			CurrentCustomerSession currentUserSession = new CurrentUserSession(existingCustomer.getCustomerId(), key,
-					LocalDateTime.now());
+			String key = RandomString.getRandomNumberString();
+			CurrentCustomerSession currentUserSession = new CurrentCustomerSession(userId, key, LocalDateTime.now());
 
 			CustomerSessionDAO.save(currentUserSession);
 
 			return currentUserSession.toString();
-		} else
-			throw new LoginException("Please Enter a valid password");
+		} else {
+			return "Please Enter valid password.";
+		}
 
 	}
 

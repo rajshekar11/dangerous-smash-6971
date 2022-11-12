@@ -6,6 +6,7 @@ import lombok.Data;
 public class CustomerDTO {
 
 	private String mobile;
+
 	private String password;
 
 }

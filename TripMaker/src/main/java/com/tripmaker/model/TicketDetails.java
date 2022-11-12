@@ -1,7 +1,5 @@
 package com.tripmaker.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,20 +15,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Route {
+public class TicketDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer routeId;
-	private String routeFrom;
-	private String routeTo;
-	private LocalDate departureTime;
-	private LocalDate arrivalTime;
-	private LocalDate doj;
-	private String pickupPoint;
-	private Double Fare;
+	private Integer ticketId;
+	private String status = "not booked";
 	
-	@OneToOne(cascade =  CascadeType.ALL)
-	private Bus bus;
-
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Route route;
 }

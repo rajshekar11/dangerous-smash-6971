@@ -15,19 +15,18 @@ import com.tripmaker.service.CustomerLoginServiceImpl;
 
 @RequestMapping("/login")
 public class LoginController {
-
 	@Autowired
 	private CustomerLoginServiceImpl customerLoginServiceImpl;
 
-//	// for user login
-//	@PostMapping("/userlogin")
-//	public String loginCustomerr(@RequestBody CustomerDTO customerDTO) throws Exception {
-//		return customerLoginServiceImpl.logIntoAccount(customerDTO);
-//	}
-//
-//	// for user logout
-//	@PatchMapping("/userlogout")
-//	public String logOutCustomerr(@RequestParam(required = false) String key) {
-//		return customerLoginServiceImpl.logOutAccount(key);
-//	}
+	// for user login
+	@PostMapping("/userlogin")
+	public String loginCustomerr(@RequestBody CustomerDTO customerDTO) throws Exception {
+		return customerLoginServiceImpl.logIntoAccount(customerDTO);
+	}
+
+	// for user logout
+	@PatchMapping("/userlogout")
+	public String logOutCustomerr(@RequestParam(required = false) String key) {
+		return customerLoginServiceImpl.logOutAccount(key);
+	}
 }

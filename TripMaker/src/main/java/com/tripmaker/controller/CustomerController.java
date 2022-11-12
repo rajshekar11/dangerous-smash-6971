@@ -26,33 +26,31 @@ import com.tripmaker.service.RouteService;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
-
+	
 	@Autowired
 	CustomerService customerService;
-
 	@Autowired
 	CustomerLoginService customerLoginService;
-	
 	@Autowired 
 	RouteService routeService;
 
 	@PostMapping("/")
-	public Customer saveCustomer(@Valid @RequestBody Customer customer) {
+	public Customer saveCustomer(@Valid @RequestBody CustomerSigninDTO customer) {
 		return customerService.createCustomer(customer);
 	}
 
 	// to update customer by passing key
 	@PutMapping("/update")
-	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer, @RequestParam(required = false) String key) {
-		
-		Customer updatedCustomer= customerService.updateCustomer(customer, key);
-		
-		return new ResponseEntity<Customer>(updatedCustomer,HttpStatus.OK);
+	public Customer updateCustomer(@RequestBody CustomerSigninDTO customer,
+			@RequestParam(required = false) String key) {
+		customerLoginService.isLoggedInByUUID(key);
+		return customerService.updateCustomer(customer, key);
 	}
-	
+
 	@GetMapping("/routes")
 	public ResponseEntity<List<Route>> getAllRoutes() throws RouteException{
 		List<Route> routeList = routeService.viewRouteList();
 		return new ResponseEntity<List<Route>>(routeList,HttpStatus.OK);
 	}
+
 }
