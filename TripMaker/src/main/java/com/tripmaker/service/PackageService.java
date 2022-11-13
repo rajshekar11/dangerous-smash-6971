@@ -9,7 +9,7 @@ import com.tripmaker.model.Package;
 public interface PackageService {
 	
 	public Package addPackage(Package packages, String key)throws PackageException, LoginException;
-	public String deletePackage(Package packages, String key)throws LoginException;
+	public String deletePackage(Integer packageId, String key)throws LoginException;
 	public Package searchPackage(Integer packageId, String key)throws LoginException, PackageException;
 	public List<Package> viewAllPackage(String key)throws LoginException;
 

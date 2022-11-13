@@ -50,22 +50,7 @@ public class PackageServiceImpl implements PackageService{
 		}
 	}
 
-	@Override
-	public String deletePackage(Package packages, String key) throws LoginException{
-		// TODO Auto-generated method stub
-		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
-
-		if (currUserOpt.isPresent()) {
-			CurrentCustomerSession currUser1 = currUserOpt.get();
-			Optional<User> loggedInUser = userDao.findById(currUser1.getId());
-			
-			packageDAO.delete(packages);
-			return "Travel is remove successfully";
-		}
-		else {
-			throw new LoginException("Please login to your account");
-		}
-	}
+	
 
 	@Override
 	public Package searchPackage(Integer packageId, String key)throws LoginException, PackageException{
@@ -98,6 +83,26 @@ public class PackageServiceImpl implements PackageService{
 			return packages;
 		}
 		throw new LoginException("Please login to your account");
+	}
+
+
+
+	@Override
+	public String deletePackage(Integer packageId, String key) throws LoginException {
+		Optional<CurrentCustomerSession> currUserOpt = CustomerSessionDAO.findByUuid(key);
+
+		if (currUserOpt.isPresent()) {
+			CurrentCustomerSession currUser1 = currUserOpt.get();
+			Optional<User> loggedInUser = userDao.findById(currUser1.getId());
+			
+			Optional<Package> Deletepackage = packageDAO.findById(packageId);
+			
+			packageDAO.delete(Deletepackage.get());
+			return "Travel is remove successfully";
+		}
+		else {
+			throw new LoginException("Please login to your account");
+		}
 	}
 
 }

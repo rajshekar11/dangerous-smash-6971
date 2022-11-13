@@ -40,9 +40,9 @@ public class PackageController {
 	}
 	
 	@DeleteMapping("/packagedelete")
-	public String deletePacakge(@RequestBody Package packages, @RequestParam String key) throws LoginException, PackageException {
+	public String deletePacakge(Integer packageId, @RequestParam String key) throws LoginException, PackageException {
 		
-		String message =  packageService.deletePackage(packages, key);
+		String message =  packageService.deletePackage(packageId, key);
 		
 			return message;
 	}
