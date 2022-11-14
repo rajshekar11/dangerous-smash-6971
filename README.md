@@ -20,4 +20,5 @@ User should  be able to perform below operations:
 
 # ER - Diagram
 
-![image] (https://github.com/rajshekar11/dangerous-smash-6971/blob/main/Blank%20diagram.jpeg)
+![Blank diagram](https://user-images.githubusercontent.com/62950509/201643920-5876a3af-c690-40e2-9113-b607c810895f.jpeg)
+
