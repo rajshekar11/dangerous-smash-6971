@@ -20,4 +20,4 @@ User should  be able to perform below operations:
 
 # ER - Diagram
 
-https://github.com/rajshekar11/dangerous-smash-6971/blob/main/Blank%20diagram.jpeg
+![image] (https://github.com/rajshekar11/dangerous-smash-6971/blob/main/Blank%20diagram.jpeg)
