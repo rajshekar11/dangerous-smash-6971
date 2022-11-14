@@ -17,3 +17,7 @@ User should  be able to perform below operations:
 4. Book / Print / Cancel  Tickets
 5. Payment  
 6. Provide/View Testimonials 
+
+# ER - Diagram
+
+https://github.com/rajshekar11/dangerous-smash-6971/blob/main/Blank%20diagram.jpeg
