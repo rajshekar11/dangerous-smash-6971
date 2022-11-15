@@ -18,6 +18,8 @@ User should  be able to perform below operations:
 5. Payment  
 6. Provide/View Testimonials 
 
+Demo Video: https://drive.google.com/drive/folders/1W0QCLnISJj18auYY4vOCRkLRrc8qzamo
+
 # ER - Diagram
 
 ![Blank diagram](https://user-images.githubusercontent.com/62950509/201643920-5876a3af-c690-40e2-9113-b607c810895f.jpeg)
