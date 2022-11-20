@@ -23,9 +23,9 @@
 - Swagger
 - Lombok
 
-### User Module
+## User Module
 
-## User should  be able to perform below operations:  
+# User should  be able to perform below operations:  
 
 - Login as Customer
 - View Routes 
@@ -34,9 +34,9 @@
 - Payment  
 - Provide/View Testimonials 
 
-### Admin Module
+## Admin Module
 
-## Admin should be able to perform below operations:
+# Admin should be able to perform below operations:
 
 - Login into the Application
 - User Management
