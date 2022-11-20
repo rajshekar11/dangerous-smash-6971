@@ -127,11 +127,11 @@
 
 ---
 
-### Login Controller
+### Login and Customer Controller
 
 ---
 
-![2](https://user-images.githubusercontent.com/36689521/202891590-4f37a412-1869-4fa0-b64c-730044274084.png)
+![2](https://user-images.githubusercontent.com/36689521/202891664-cc321eb7-ecc7-4033-8aec-e1720d20898c.png)
 
 ---
 
@@ -139,15 +139,7 @@
 
 ---
 
-
-
----
-
-### Customer Controller
-
----
-
-
+![3](https://user-images.githubusercontent.com/36689521/202891682-b5103f4f-6213-4f8a-9b7c-6353d9dae807.png)
 
 ---
 
@@ -155,7 +147,7 @@
 
 ---
 
-
+![4](https://user-images.githubusercontent.com/36689521/202891712-264802df-7bc3-4c03-bfff-80edbb8946aa.png)
 
 ---
 
@@ -163,7 +155,7 @@
 
 ---
 
-
+![5](https://user-images.githubusercontent.com/36689521/202891751-7567c132-2e69-4821-b56e-70ba62479db2.png)
 
 ---
 
@@ -171,10 +163,11 @@
 
 ---
 
+![6](https://user-images.githubusercontent.com/36689521/202891767-9a1fb87d-fb39-4d30-b8fe-c0de29a02c1a.png)
 
 
 ---
 
-
+![7](https://user-images.githubusercontent.com/36689521/202891920-90ade0ea-fc26-475f-a036-bcc412ddacbf.jpg)
 
 ---
